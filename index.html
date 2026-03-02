@@ -430,11 +430,15 @@
             border-radius: var(--border-radius);
             border: 1px solid var(--border-color);
             transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .blog-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
         }
 
         .blog-badge {
@@ -446,6 +450,7 @@
             font-size: 0.75rem;
             font-weight: 600;
             margin-bottom: 1rem;
+            align-self: flex-start;
         }
 
         .blog-meta {
@@ -455,10 +460,12 @@
             margin-bottom: 1rem;
             color: var(--text-light);
             font-size: 0.875rem;
+            flex-wrap: wrap;
         }
 
         .blog-meta i {
             color: var(--primary-color);
+            margin-right: 0.25rem;
         }
 
         .blog-card h3 {
@@ -466,12 +473,14 @@
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 1rem;
+            line-height: 1.4;
         }
 
         .blog-excerpt {
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.7;
+            flex-grow: 1;
         }
 
         .blog-footer {
@@ -480,6 +489,7 @@
             align-items: center;
             padding-top: 1rem;
             border-top: 1px solid var(--border-color);
+            margin-top: auto;
         }
 
         .blog-link {
@@ -489,11 +499,19 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .blog-link:hover {
+            gap: 0.75rem;
         }
 
         .blog-stats {
             color: var(--text-light);
             font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         /* Contact Info Section (Simplified) */
@@ -702,6 +720,12 @@
             .contact-card {
                 padding: 1.5rem;
             }
+
+            .blog-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -854,13 +878,28 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
+    <!-- Blog Section - Updated with your new article -->
     <section id="blog" class="blog">
         <div class="container">
             <h2 class="section-title">Latest from Blog</h2>
             <div class="blog-grid">
                 <article class="blog-card">
-                    <span class="blog-badge">Featured</span>
+                    <span class="blog-badge">New</span>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> March 2026</span>
+                        <span><i class="far fa-clock"></i> 9 min read</span>
+                    </div>
+                    <h3>Claude VS ChatGPT? Who wins?</h3>
+                    <p class="blog-excerpt">An in-depth analysis of the epic rivalry between Anthropic and OpenAI - from their philosophical split in 2021 to the current battle for enterprise AI dominance. Who's really winning the war for the future of artificial intelligence?</p>
+                    <div class="blog-footer">
+                        <a href="https://medium.com/@hs7481216/claude-vs-chatgpt-who-wins-09a52f16d2a5" target="_blank" class="blog-link">
+                            Read on Medium <i class="fab fa-medium"></i>
+                        </a>
+                        <span class="blog-stats"><i class="fas fa-tag"></i> AI</span>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
                     <div class="blog-meta">
                         <span><i class="far fa-calendar"></i> March 2024</span>
                         <span><i class="far fa-clock"></i> 8 min read</span>
@@ -871,33 +910,7 @@
                         <a href="https://medium.com/@hs7481216/getting-started-with-ai-development-e2b65b944861" target="_blank" class="blog-link">
                             Read on Medium <i class="fab fa-medium"></i>
                         </a>
-                        <span class="blog-stats">AI Development</span>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-meta">
-                        <span><i class="far fa-calendar"></i> February 2024</span>
-                        <span><i class="far fa-clock"></i> 6 min read</span>
-                    </div>
-                    <h3>Mathematics in Web Development</h3>
-                    <p class="blog-excerpt">Discover how mathematical concepts enhance web development and create more efficient applications through practical examples and real-world applications.</p>
-                    <div class="blog-footer">
-                        <span class="blog-link">Coming Soon</span>
-                        <span class="blog-stats">Mathematics</span>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-meta">
-                        <span><i class="far fa-calendar"></i> January 2024</span>
-                        <span><i class="far fa-clock"></i> 5 min read</span>
-                    </div>
-                    <h3>Building Communities Through Code</h3>
-                    <p class="blog-excerpt">Lessons learned from founding Coding Club JMI and creating impact through technical education and community building. Insights on leadership and growth.</p>
-                    <div class="blog-footer">
-                        <span class="blog-link">Coming Soon</span>
-                        <span class="blog-stats">Community</span>
+                        <span class="blog-stats"><i class="fas fa-tag"></i> AI</span>
                     </div>
                 </article>
             </div>
