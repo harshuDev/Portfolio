@@ -218,7 +218,7 @@
             border-radius: 2px;
         }
 
-        /* About Section */
+        /* About Section - Redesigned */
         .about {
             background: var(--bg-secondary);
         }
@@ -226,35 +226,45 @@
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
+            gap: 2.5rem;
+        }
+
+        .about-left, .about-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .about-card {
             background: var(--bg-primary);
             padding: 2rem;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-color);
-            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            height: 100%;
         }
 
-        .about-card:last-child {
-            margin-bottom: 0;
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
         }
 
         .about-card h3 {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--bg-tertiary);
         }
 
         .about-card h3 i {
             color: var(--primary-color);
+            font-size: 1.5rem;
         }
 
         .about-card p {
@@ -264,17 +274,88 @@
 
         .about-card .highlight {
             color: var(--primary-color);
-            font-weight: 500;
+            font-weight: 600;
         }
 
-        .about-card ul {
-            color: var(--text-secondary);
+        .interests-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
             margin-top: 1rem;
-            margin-left: 1.5rem;
         }
 
-        .about-card li {
+        .interest-item {
+            background: var(--bg-tertiary);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .interest-item:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .interest-item i {
+            color: var(--primary-color);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .interest-item:hover i {
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            background: var(--bg-tertiary);
+            padding: 1.25rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .stat-item:hover .stat-label {
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
             margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover .stat-number {
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
         }
 
         /* Skills Section */
@@ -336,7 +417,7 @@
             color: white;
         }
 
-        /* Project Section (Single) */
+        /* Project Section */
         .project {
             background: var(--bg-secondary);
         }
@@ -354,6 +435,7 @@
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
         }
 
         .project-header {
@@ -411,6 +493,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            transition: var(--transition);
         }
 
         .project-link:hover {
@@ -514,7 +597,7 @@
             gap: 0.5rem;
         }
 
-        /* Contact Info Section (Simplified) */
+        /* Contact Section */
         .contact {
             background: var(--bg-secondary);
         }
@@ -556,6 +639,10 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 50px;
+            width: fit-content;
         }
 
         .contact-item i {
@@ -598,10 +685,18 @@
             color: white;
             font-size: 1.5rem;
             transition: var(--transition);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .social-link:hover {
             color: var(--primary-color);
+            background: white;
             transform: translateY(-3px);
         }
 
@@ -656,6 +751,7 @@
                 padding: 2rem 0;
                 gap: 1.5rem;
                 box-shadow: var(--shadow-md);
+                z-index: 1000;
             }
 
             .nav-menu.active {
@@ -664,6 +760,7 @@
 
             .hamburger {
                 display: flex;
+                z-index: 1001;
             }
 
             .hamburger.active .bar:nth-child(2) {
@@ -680,6 +777,7 @@
 
             .about-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .skills-grid {
@@ -701,6 +799,11 @@
 
             .section-title {
                 font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .interests-list {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -721,10 +824,13 @@
                 padding: 1.5rem;
             }
 
-            .blog-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-item {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -769,20 +875,21 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section - Completely Reorganized -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-grid">
-                <div class="about-content">
+                <!-- Left Column -->
+                <div class="about-left">
                     <div class="about-card">
                         <h3><i class="fas fa-user-graduate"></i> Background</h3>
-                        <p>I'm a dedicated honors student with a strong foundation in mathematics and computer science. My journey in technology began with a passion for problem-solving and data analysis, which led me to pursue development and financial technology.</p>
+                        <p>I'm a dedicated honors student with a strong foundation in <span class="highlight">mathematics and computer science</span>. My journey in technology began with a passion for problem-solving and data analysis, which led me to pursue development and financial technology.</p>
                     </div>
                     
                     <div class="about-card">
                         <h3><i class="fas fa-code-branch"></i> Development Journey</h3>
-                        <p>Starting as the Co-Founder of Coding Club JMI, I provided free coding education to students. This experience taught me the importance of community building and knowledge sharing. Currently, I work as an AI Business Developer at Incrementors Web Solutions.</p>
+                        <p>Starting as the <span class="highlight">Co-Founder of Coding Club JMI</span>, I provided free coding education to students. This experience taught me the importance of community building and knowledge sharing. Currently, I work as an AI Business Developer at Incrementors Web Solutions.</p>
                     </div>
                     
                     <div class="about-card">
@@ -791,15 +898,72 @@
                     </div>
                 </div>
                 
-                <div class="about-card">
-                    <h3><i class="fas fa-chart-line"></i> Fin-Tech Interests</h3>
-                    <p>Passionate about applying mathematical and computational skills to finance. Currently exploring:</p>
-                    <ul>
-                        <li>Algorithmic trading strategies</li>
-                        <li>Risk analysis and portfolio optimization</li>
-                        <li>Predictive modeling for market trends</li>
-                        <li>Blockchain and DeFi applications</li>
-                    </ul>
+                <!-- Right Column -->
+                <div class="about-right">
+                    <div class="about-card">
+                        <h3><i class="fas fa-chart-line"></i> Fin-Tech Interests</h3>
+                        <p>Passionate about applying mathematical and computational skills to finance. Currently exploring:</p>
+                        <div class="interests-list">
+                            <div class="interest-item">
+                                <i class="fas fa-robot"></i> Algorithmic Trading
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-chart-pie"></i> Risk Analysis
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-chart-bar"></i> Portfolio Optimization
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-cube"></i> Financial Modeling
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-link"></i> Blockchain
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-coins"></i> DeFi Applications
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3><i class="fas fa-trophy"></i> Quick Stats</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Community Members</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Projects</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">Workshops</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">3+</div>
+                                <div class="stat-label">Years Coding</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3><i class="fas fa-heart"></i> Beyond Coding</h3>
+                        <div class="interests-list">
+                            <div class="interest-item">
+                                <i class="fas fa-book"></i> Mathematics
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-chart-line"></i> Stock Markets
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-users"></i> Community Building
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-lightbulb"></i> Problem Solving
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -878,7 +1042,7 @@
         </div>
     </section>
 
-    <!-- Blog Section - Updated with your new article -->
+    <!-- Blog Section -->
     <section id="blog" class="blog">
         <div class="container">
             <h2 class="section-title">Latest from Blog</h2>
@@ -917,7 +1081,7 @@
         </div>
     </section>
 
-    <!-- Contact Section (Simplified - No Form) -->
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get in Touch</h2>
