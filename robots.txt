@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://harshusingh.dev/sitemap.xml
+Sitemap: https://portfolio-pi-roan-61.vercel.app/sitemap.xml
