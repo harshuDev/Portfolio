@@ -1036,59 +1036,13 @@
             border-color: var(--primary-color);
         }
 
-        /* Contact form */
-        .contact-form {
-            display: grid;
-            gap: 0.5rem;
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        .contact-form label {
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            margin-top: 0.5rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 0.95rem;
-        }
-
-        .contact-form textarea {
-            resize: vertical;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .contact-form .btn {
+        /* Contact CTA button (replaces removed contact form) */
+        .contact-cta {
+            display: inline-flex;
+            align-self: start;
             justify-self: start;
-            margin-top: 0.75rem;
+            margin-top: 1.5rem;
         }
-
-        /* Footer */
-        .form-status {
-            margin: 0 0 1rem;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .form-status.sending { background: var(--bg-secondary, rgba(59,130,246,0.1)); color: var(--accent, #3b82f6); }
-        .form-status.success { background: rgba(34,197,94,0.12); color: #22c55e; border: 1px solid rgba(34,197,94,0.35); }
-        .form-status.error   { background: rgba(239,68,68,0.12); color: #ef4444; border: 1px solid rgba(239,68,68,0.35); }
 
         .footer {
             background: var(--secondary-color);
@@ -1795,18 +1749,9 @@
                             <i class="fas fa-envelope" aria-hidden="true"></i>
                         </a>
                     </div>
-                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
-                        <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
-                        <label for="cf-name">Name</label>
-                        <input id="cf-name" type="text" name="name" required placeholder="Your name">
-                        <label for="cf-email">Email</label>
-                        <input id="cf-email" type="email" name="email" required placeholder="you@example.com">
-                        <label for="cf-message">Message</label>
-                        <textarea id="cf-message" name="message" rows="5" required placeholder="Your message..."></textarea>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
-                        </button>
-                    </form>
+                    <a href="mailto:hs7481216@gmail.com?subject=Hello%20Harsh" class="btn btn-primary contact-cta">
+                        <i class="fas fa-envelope" aria-hidden="true"></i> Email Me Directly
+                    </a>
                 </div>
             </div>
         </div>
@@ -1954,41 +1899,6 @@
 
         function updateThemeIcon(theme) {
             themeToggle.querySelector('i').className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        }
-
-        // Contact form: submit via fetch with inline feedback (works on Vercel & Netlify)
-        const contactForm = document.getElementById('contactForm');
-        const formStatus = document.getElementById('formStatus');
-        if (contactForm && formStatus) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const btn = contactForm.querySelector('button[type="submit"]');
-                formStatus.hidden = false;
-                btn.disabled = true;
-                formStatus.textContent = 'Sending...';
-                formStatus.className = 'form-status sending';
-                try {
-                    const res = await fetch(contactForm.action, {
-                        method: 'POST',
-                        body: new FormData(contactForm),
-                        headers: { 'Accept': 'application/json' }
-                    });
-                    if (res.ok) {
-                        formStatus.textContent = "Thanks! Your message has been sent. I'll get back to you soon.";
-                        formStatus.className = 'form-status success';
-                        contactForm.reset();
-                    } else {
-                        const data = await res.json().catch(() => null);
-                        formStatus.textContent = (data && data.errors) ? 'Please check the highlighted fields and try again.' : 'Something went wrong. Please email me directly at hs7481216@gmail.com.';
-                        formStatus.className = 'form-status error';
-                    }
-                } catch (err) {
-                    formStatus.textContent = 'Network error. Please email me directly at hs7481216@gmail.com.';
-                    formStatus.className = 'form-status error';
-                } finally {
-                    btn.disabled = false;
-                }
-            });
         }
 
         // Scroll reveal animations via IntersectionObserver
