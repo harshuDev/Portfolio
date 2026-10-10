@@ -86,6 +86,7 @@
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
             --card-bg: #ffffff;
             --hover-bg: #f1f5f9;
+            --border-radius: 16px;
             --transition: all 0.3s ease;
         }
 
@@ -1038,10 +1039,12 @@
 
         /* Contact CTA button (replaces removed contact form) */
         .contact-cta {
-            display: inline-flex;
-            align-self: start;
-            justify-self: start;
-            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: fit-content;
+            margin: 1.5rem auto 0;
         }
 
         .footer {
@@ -1663,7 +1666,7 @@
                     <span class="tech-tag">Botpress</span>
                     <span class="tech-tag">NLP</span>
                 </div>
-                <a href="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/03/07/21/20260307214545-JRJDKPJI.json" target="_blank" rel="noopener" class="project-link">
+                <a href="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026-03-07/21/20260307214545-JRJDKPJI.json" target="_blank" rel="noopener" class="project-link">
                     Live Demo <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -1690,7 +1693,7 @@
                         <span class="blog-stats"><i class="fas fa-tag"></i> AI</span>
                     </div>
                 </article>
-                
+
                 <article class="blog-card">
                     <div class="blog-meta">
                         <span><i class="far fa-calendar"></i> Feb 2026</span>
@@ -1750,7 +1753,7 @@
                         </a>
                     </div>
                     <a href="mailto:hs7481216@gmail.com?subject=Hello%20Harsh" class="btn btn-primary contact-cta">
-                        <i class="fas fa-envelope" aria-hidden="true"></i> Email Me Directly
+                        <i class="fas fa-envelope" aria-hidden="true"></i> Email me
                     </a>
                 </div>
             </div>
